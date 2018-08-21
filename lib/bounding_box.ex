@@ -17,7 +17,8 @@ defmodule BoundingBox do
   %BoundingBox{p1: {0, 1}, p2: {2, 3}}
 
   """
-  def from_coordinates([p1, p2]) when is_float(p1) and is_float(p2) do
+  def from_coordinates([p1, p2])
+      when tuple_size(p1) == 2 and tuple_size(p2) == 2 do
     %__MODULE__{p1: p1, p2: p2}
   end
 
