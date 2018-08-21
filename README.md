@@ -1,21 +1,35 @@
-# Coordinates
+# Wunder Challenge
 
-**TODO: Add description**
+Solution for Wunder Challenge made in Elixir using Streams.
 
-## Installation
+## Install
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `coordinates` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:coordinates, "~> 0.1.0"}
-  ]
-end
+```sh
+mix deps.get
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/coordinates](https://hexdocs.pm/coordinates).
+## Running Tests
 
+```sh
+mix test
+```
+
+## Running the code
+
+Best way to run and interact with the code is in the iex Elixir REPL.
+```sh
+iex -S mix
+
+Then you may use the module Main to interact with the code functionality.
+
+```elixir
+Main.happy_path()
+```
+This will load the cache with the pairs and coordinate data.
+
+## Getting help
+
+You can use the docstrings in the files to get some help about the API.
+```elixir
+h Main.pairs
+```
