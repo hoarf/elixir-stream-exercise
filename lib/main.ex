@@ -29,7 +29,7 @@ defmodule Main do
     |> Stream.chunk_while([], &errors/2, &result/1)
     |> Stream.drop(-1)
     |> Stream.chunk_every(2, 1, :discard)
-    |> Stream.map(&BoundingBox.from_coordinate/1)
+    |> Stream.map(&BoundingBox.from_coordinates/1)
     |> Stream.each(&Cache.save(&1))
     |> Stream.run()
   end
