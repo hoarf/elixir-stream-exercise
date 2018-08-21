@@ -17,7 +17,7 @@ defmodule BoundingBox do
   %BoundingBox{p1: {0, 1}, p2: {2, 3}}
 
   """
-  def from_coordinates([p1, p2]) do
+  def from_coordinates([p1, p2]) when is_float(p1) and is_float(p2) do
     %__MODULE__{p1: p1, p2: p2}
   end
 
@@ -39,7 +39,7 @@ defmodule BoundingBox do
   iex> BoundingBox.find([%BoundingBox{p1: {0,0}, p2: {1,1}}], {0.5, 0.5})
   %BoundingBox{p1: {0,0}, p2: {1,1}}
   """
-  def find(bounding_boxes, coordinate) do
+  def find(bounding_boxes, coordinate) when tuple_size(coordinate) == 2 do
     Enum.find(bounding_boxes, &contains?(&1, coordinate))
   end
 
