@@ -41,7 +41,7 @@ defmodule Main do
   Will log errors as side effects.
 
   Returns a Map whose keys are the coordinates that had a matching bounding box
-  and the value is the actual bounding box.
+  and the value is the the first matching bounding box in the cache.
   """
   def coordinates(path \\ "data/coordinates.csv") do
     path
