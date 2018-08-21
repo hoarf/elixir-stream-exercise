@@ -3,7 +3,7 @@ defmodule Cache do
 
   # Client API
   def start_link(), do: GenServer.start_link(__MODULE__, [], name: Cache)
-  def save(bounding_box), do: GenServer.call(Cache, {:save, bounding_box})
+  def save!(bounding_box), do: GenServer.call(Cache, {:save, bounding_box})
   def find(coordinate), do: GenServer.call(Cache, {:find, coordinate})
 
   # Server
