@@ -10,8 +10,8 @@ defmodule Coordinate do
 
   ## Examples
 
-      iex> Coordinate.parse("120.9931,14.7583")
-      {120.9931, 14.7583}
+  iex> Coordinate.cast("120.9931,14.7583")
+  {:ok, {14.7583,120.9931}}
 
   """
   def cast(raw_point) when is_bitstring(raw_point) do
