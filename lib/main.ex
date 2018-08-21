@@ -54,6 +54,18 @@ defmodule Main do
     |> Enum.to_list()
   end
 
+  @doc """
+
+  """
+  def add(origin, destination)
+      when tuple_size(origin) == 2 and tuple_size(destination) == 2 do
+    with origin_bounding_box <- Cache.find(origin),
+         dest_bounding_box <- Cache.find(destination) do
+      Cache.save!(BoundingBox.from_coordinates([origin, destination]))
+      {origin_bounding_box, dest_bounding_box}
+    end
+  end
+
   defp reduce(coordinate, acc) do
     case Cache.find(coordinate) do
       nil ->
