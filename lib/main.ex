@@ -6,6 +6,22 @@ defmodule Main do
   """
 
   @doc """
+
+  Runs the code in the ideal world where everything goes well.
+  Used for doing quick startup of the environment.
+
+  1. Starts the cache process
+  2. Build the BoundingBox cache
+  3. Assigns the coordinates to the bounding box.
+
+  """
+  def happy_path() do
+    run()
+    pairs()
+    coordinates()
+  end
+
+  @doc """
   Starts the cache in another process.
 
   Returns {:ok, pid} if successful or throws an error otherwise.
@@ -55,9 +71,13 @@ defmodule Main do
   end
 
   @doc """
+  Adds another bounding box to cache whose points are the origin and destination
+  parameters.
 
+  Returns a tuple whose elements are the BoundingBox associated with the origin
+  and destination respectively if they are found, nil otherwise.
   """
-  def add(origin, destination)
+  def add!(origin, destination)
       when tuple_size(origin) == 2 and tuple_size(destination) == 2 do
     with origin_bounding_box <- Cache.find(origin),
          dest_bounding_box <- Cache.find(destination) do
